@@ -10,25 +10,21 @@ class MyApp extends StatelessWidget {
       title: 'Container Demo',
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(title: const Text('Step 3: Decoration')),
+        appBar: AppBar(title: const Text('Step 4: Padding & Margin')),
         body: Center(
           child: Container(
-            width: 200,
-            height: 200,
+            margin: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
+            padding: const EdgeInsets.all(16.0),
+            width: double.infinity,
+            constraints: const BoxConstraints(maxWidth: 360),
             decoration: BoxDecoration(
-              color: Colors.white, // gunakan color di dalam decoration
-              borderRadius: BorderRadius.circular(12),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey.withOpacity(0.4),
-                  blurRadius: 8,
-                  offset: const Offset(2, 4),
-                ),
-              ],
-              border: Border.all(color: Colors.grey.shade300, width: 1),
+              color: Colors.blueAccent,
+              borderRadius: BorderRadius.circular(10),
             ),
-            child: const Center(
-              child: Icon(Icons.person, size: 48, color: Colors.pinkAccent),
+            child: const Text(
+              'Contoh container dengan margin (luar) dan padding (dalam).\nPadding membuat jarak di dalam container.',
+              style: TextStyle(color: Colors.white),
+              textAlign: TextAlign.center,
             ),
           ),
         ),
