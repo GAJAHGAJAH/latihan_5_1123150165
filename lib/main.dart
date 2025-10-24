@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:math' as math;
 
 void main() => runApp(const MyApp());
 
@@ -10,44 +11,26 @@ class MyApp extends StatelessWidget {
       title: 'Container Demo',
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(title: const Text('Step 5: Alignment & Layout')),
+        appBar: AppBar(title: const Text('Step 6: Constraints & Transform')),
         body: Center(
           child: Container(
-            width: 320,
-            height: 160,
-            alignment: Alignment.center, // posisi Row (sebagai satu unit)
-            decoration: BoxDecoration(
-              color: Colors.amber,
-              borderRadius: BorderRadius.circular(8),
+            constraints: const BoxConstraints(
+              minWidth: 150,
+              maxWidth: 300,
+              minHeight: 80,
+              maxHeight: 200,
             ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: const [
-                    Icon(Icons.home),
-                    SizedBox(height: 6),
-                    Text('Home'),
-                  ],
-                ),
-                Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: const [
-                    Icon(Icons.search),
-                    SizedBox(height: 6),
-                    Text('Search'),
-                  ],
-                ),
-                Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: const [
-                    Icon(Icons.person),
-                    SizedBox(height: 6),
-                    Text('Profile'),
-                  ],
-                ),
-              ],
+            padding: const EdgeInsets.all(12),
+            decoration: BoxDecoration(
+              color: Colors.greenAccent,
+              borderRadius: BorderRadius.circular(10),
+            ),
+            transform: Matrix4.rotationZ(-0.08), // sedikit rotasi
+            child: const Center(
+              child: Text(
+                'Container dengan BoxConstraints dan transform (rotasi).',
+                textAlign: TextAlign.center,
+              ),
             ),
           ),
         ),
