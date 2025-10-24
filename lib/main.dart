@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -12,12 +10,16 @@ class MyApp extends StatelessWidget {
       title: 'Container Demo',
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Container Demo - Step 1'),
-          centerTitle: true,
-        ),
-        body: const Center(
-          child: Text('Langkah 1: Scaffold dasar'),
+        appBar: AppBar(title: const Text('Step 2: Basic Container')),
+        body: Center(
+          child: Container(
+            // tanpa width/height: ukuran mengikuti child
+            color: Colors.orangeAccent,
+            child: const Padding(
+              padding: EdgeInsets.all(12.0),
+              child: Text('Container sederhana (wrap content)'),
+            ),
+          ),
         ),
       ),
     );
