@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'dart:math' as math;
 
 void main() => runApp(const MyApp());
 
@@ -11,24 +10,27 @@ class MyApp extends StatelessWidget {
       title: 'Container Demo',
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(title: const Text('Step 6: Constraints & Transform')),
+        appBar: AppBar(title: const Text('Step 7: ForegroundDecoration & Background')),
         body: Center(
           child: Container(
-            constraints: const BoxConstraints(
-              minWidth: 150,
-              maxWidth: 300,
-              minHeight: 80,
-              maxHeight: 200,
-            ),
-            padding: const EdgeInsets.all(12),
+            width: 320,
+            height: 200,
             decoration: BoxDecoration(
-              color: Colors.greenAccent,
-              borderRadius: BorderRadius.circular(10),
+              gradient: const LinearGradient(
+                colors: [Colors.purple, Colors.deepPurpleAccent],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+              ),
+              borderRadius: BorderRadius.circular(14),
             ),
-            transform: Matrix4.rotationZ(-0.08), // sedikit rotasi
+            foregroundDecoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(14),
+              border: Border.all(color: Colors.white.withOpacity(0.3), width: 2),
+            ),
             child: const Center(
               child: Text(
-                'Container dengan BoxConstraints dan transform (rotasi).',
+                'Gradient background + foreground border',
+                style: TextStyle(color: Colors.white),
                 textAlign: TextAlign.center,
               ),
             ),
